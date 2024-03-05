@@ -1,5 +1,6 @@
 menu = """
 ###### DIO BANK ######
+
 Selecione a opção desejada:
 
 [1] - Depósito
@@ -25,22 +26,27 @@ while True:
     if opcao == "1": # Depósito
         print("Opção Selecionada: Depósito")
         deposito = float(input("Valor para depósito: R$ "))
-        saldo += deposito
-        extrato.append("Depósito de R$ " + f"{deposito:.2f}")
-        print(f"""Depósito realizado com sucesso. Saldo atual: R$ {saldo:.2f}""")
-        retornar_ao_menu = str(input(f"Deseja voltar ao menu principal? \nS/N \n"))
+
+        if deposito > 0:
+
+            saldo += deposito
+            extrato.append("Depósito de R$ " + f"{deposito:.2f}")
+            print(f"""Depósito realizado com sucesso. Saldo atual: R$ {saldo:.2f}""")
+            retornar_ao_menu = str(input(f"Deseja voltar ao menu principal? \nS/N \n"))
             
-        if retornar_ao_menu == "N":
-            print("Obrigado por utilizar nosso Banco!")
-            break
-            
+            if retornar_ao_menu == "N":
+                print("Obrigado por utilizar nosso Banco!")
+                break
+
+        else:
+            print("Valor inválido. Retornando ao Menu Principal.")          
                 
 
     elif opcao == "2": # Saque
         saque = float(input("Valor para saque: R$ "))
         
         if saque >= valor_maximo_saque:
-            print("Valor superior ao limite de saque por operação.")
+            print("Valor superior ao limite de saque por operação. Retornando ao Menu Principal.")
 
         elif 0 < saque <= saldo and i <= LIMITE_SAQUES:
             i += 1
