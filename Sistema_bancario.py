@@ -77,6 +77,7 @@ while True:
         print("\n========== EXTRATO ==========\n")
         if not extrato:
             print("Não foram realizadas movimentações.")
+            print(f"\nSaldo atual: R$ {saldo:.2f}")
         else:
             print(*extrato, sep="\n")
             print(f"Saldo atual: R$ {saldo:.2f}")
