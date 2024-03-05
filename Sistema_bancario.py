@@ -74,8 +74,11 @@ while True:
             print("Valor inválido.")
 
     elif opcao == "3": # Extrato
-        print(*extrato, sep="\n")
-        print(f"Saldo atual: R$ {saldo:.2f}")
+        if not extrato:
+            print("Não foram realizadas movimentações.")
+        else:
+            print(*extrato, sep="\n")
+            print(f"Saldo atual: R$ {saldo:.2f}")
 
     elif opcao == "4":
         print("Obrigado por utilizar nosso Banco!")
